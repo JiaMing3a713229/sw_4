@@ -1,6 +1,6 @@
 ORG 0000H
 	
-	MOV	R1,#07H
+	
 	
 	TEST:	ORL	P3,#0FFH
 			JNB	P3.7,CASE1
@@ -10,6 +10,7 @@ ORG 0000H
 			AJMP	TEST
 			
 			CASE1:
+					MOV	R1,#07H
 					MOV		A,#11111110B
 				LEFT:
 					MOV		P1,A
@@ -19,6 +20,7 @@ ORG 0000H
 					MOV		R1,07H
 					AJMP	TEST
 			CASE2:
+					MOV	R1,#07H
 					MOV		A,#01111111B
 				RIGHT:
 					MOV		P1,A
@@ -53,7 +55,7 @@ ORG 0000H
 					AJMP	TEST
 	
 
-	DELAY:	MOV	R5,#2
+	DELAY:	MOV	R5,#2000
 	DL1:	MOV	R6,#250
 	DL2:	MOV R7,#200
 	DL3:	DJNZ	R7,DL3

@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  SW_4                                                                 10/20/2019 19:15:28 PAGE     1
+A51 MACRO ASSEMBLER  SW_4                                                                 10/26/2019 23:09:26 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -10,81 +10,85 @@ LOC  OBJ            LINE     SOURCE
 
 0000                   1     ORG 0000H
                        2             
-0000 7907              3             MOV     R1,#07H
+                       3             
                        4             
-0002 43B0FF            5             TEST:   ORL     P3,#0FFH
-0005 30B70B            6                             JNB     P3.7,CASE1
-0008 30B615            7                             JNB P3.6,CASE2
-000B 30B51F            8                             JNB P3.5,CASE3
-000E 30B42E            9                             JNB P3.4,CASE4
-0011 0102             10                             AJMP    TEST
+0000 43B0FF            5             TEST:   ORL     P3,#0FFH
+0003 30B70B            6                             JNB     P3.7,CASE1
+0006 30B617            7                             JNB P3.6,CASE2
+0009 30B523            8                             JNB P3.5,CASE3
+000C 30B432            9                             JNB P3.4,CASE4
+000F 0100             10                             AJMP    TEST
                       11                             
-0013                  12                             CASE1:
-0013 74FE             13                                             MOV             A,#11111110B
-0015                  14                                     LEFT:
-0015 F590             15                                             MOV             P1,A
-0017 1151             16                                             ACALL   DELAY
-0019 23               17                                             RL              A
-001A D9F9             18                                             DJNZ    R1,LEFT
-001C A907             19                                             MOV             R1,07H
-001E 0102             20                                             AJMP    TEST
-0020                  21                             CASE2:
-0020 747F             22                                             MOV             A,#01111111B
-0022                  23                                     RIGHT:
-0022 F590             24                                             MOV             P1,A
-0024 1151             25                                             ACALL   DELAY
-0026 03               26                                             RR              A
-0027 D9F9             27                                             DJNZ    R1,RIGHT
-0029 A907             28                                             MOV             R1,07H
-002B 0102             29                                             AJMP    TEST
-002D                  30                             CASE3:
-002D 7804             31                                             MOV             R0,#OK1-TABLE1+1
-002F 90005E           32                                             MOV             DPTR,#TABLE1
-0032 7A00             33                                             MOV             R2,#00H
-0034                  34                                     DIFFUSION:
-0034 EA               35                                             MOV             A,R2
-0035 93               36                                             MOVC    A,@A+DPTR
-0036 F590             37                                             MOV             P1,A
-0038 1151             38                                             ACALL   DELAY
-003A 0A               39                                             INC             R2
-003B D8F7             40                                             DJNZ    R0,DIFFUSION
-003D 0102             41                                             AJMP    TEST
-003F                  42                             CASE4:
-003F 7804             43                                             MOV             R0,#OK2-TABLE2+1
-0041 900062           44                                             MOV             DPTR,#TABLE2
-0044 7A00             45                                             MOV             R2,#00H
-0046                  46                                     CONCENTRATED:
-0046 EA               47                                             MOV             A,R2
-0047 93               48                                             MOVC    A,@A+DPTR
-0048 F590             49                                             MOV             P1,A
-004A 1151             50                                             ACALL   DELAY
-004C 0A               51                                             INC             R2
-004D D8F7             52                                             DJNZ    R0,CONCENTRATED
-004F 0102             53                                             AJMP    TEST
-                      54             
-                      55     
-0051 7D02             56             DELAY:  MOV     R5,#2
-0053 7EFA             57             DL1:    MOV     R6,#250
-A51 MACRO ASSEMBLER  SW_4                                                                 10/20/2019 19:15:28 PAGE     2
+0011                  12                             CASE1:
+0011 7907             13                                             MOV     R1,#07H
+0013 74FE             14                                             MOV             A,#11111110B
+0015                  15                                     LEFT:
+0015 F590             16                                             MOV             P1,A
+0017 1153             17                                             ACALL   DELAY
+0019 23               18                                             RL              A
+001A D9F9             19                                             DJNZ    R1,LEFT
+001C A907             20                                             MOV             R1,07H
+001E 0100             21                                             AJMP    TEST
+0020                  22                             CASE2:
+0020 7907             23                                             MOV     R1,#07H
+0022 747F             24                                             MOV             A,#01111111B
+0024                  25                                     RIGHT:
+0024 F590             26                                             MOV             P1,A
+0026 1153             27                                             ACALL   DELAY
+0028 03               28                                             RR              A
+0029 D9F9             29                                             DJNZ    R1,RIGHT
+002B A907             30                                             MOV             R1,07H
+002D 0100             31                                             AJMP    TEST
+002F                  32                             CASE3:
+002F 7804             33                                             MOV             R0,#OK1-TABLE1+1
+0031 900060           34                                             MOV             DPTR,#TABLE1
+0034 7A00             35                                             MOV             R2,#00H
+0036                  36                                     DIFFUSION:
+0036 EA               37                                             MOV             A,R2
+0037 93               38                                             MOVC    A,@A+DPTR
+0038 F590             39                                             MOV             P1,A
+003A 1153             40                                             ACALL   DELAY
+003C 0A               41                                             INC             R2
+003D D8F7             42                                             DJNZ    R0,DIFFUSION
+003F 0100             43                                             AJMP    TEST
+0041                  44                             CASE4:
+0041 7804             45                                             MOV             R0,#OK2-TABLE2+1
+0043 900064           46                                             MOV             DPTR,#TABLE2
+0046 7A00             47                                             MOV             R2,#00H
+0048                  48                                     CONCENTRATED:
+0048 EA               49                                             MOV             A,R2
+0049 93               50                                             MOVC    A,@A+DPTR
+004A F590             51                                             MOV             P1,A
+004C 1153             52                                             ACALL   DELAY
+004E 0A               53                                             INC             R2
+004F D8F7             54                                             DJNZ    R0,CONCENTRATED
+0051 0100             55                                             AJMP    TEST
+                      56             
+                      57     
+A51 MACRO ASSEMBLER  SW_4                                                                 10/26/2019 23:09:26 PAGE     2
 
-0055 7FC8             58             DL2:    MOV R7,#200
-0057 DFFE             59             DL3:    DJNZ    R7,DL3
-0059 DEFA             60                             DJNZ    R6,DL2
-005B DDF6             61                             DJNZ    R5,DL1
-005D 22               62                             RET
-                      63             
-005E E7               64             TABLE1: DB      11100111B
-005F DB               65                             DB      11011011B
-0060 BD               66                             DB      10111101B
-0061 7E               67             OK1:    DB      01111110B
-                      68                     
-0062 7E               69             TABLE2: DB      01111110B
-0063 BD               70                             DB      10111101B
-0064 DB               71                             DB      11011011B
-0065 E7               72             OK2:    DB      11100111B
-                      73                     
-                      74             END
-A51 MACRO ASSEMBLER  SW_4                                                                 10/20/2019 19:15:28 PAGE     3
+0053 7DD0             58             DELAY:  MOV     R5,#2000
+*** _____________________________________________________^
+*** WARNING #A52 IN 58 (sw_4.a51, LINE 58): VALUE HAS BEEN TRUNCATED TO 8 BITS
+0055 7EFA             59             DL1:    MOV     R6,#250
+0057 7FC8             60             DL2:    MOV R7,#200
+0059 DFFE             61             DL3:    DJNZ    R7,DL3
+005B DEFA             62                             DJNZ    R6,DL2
+005D DDF6             63                             DJNZ    R5,DL1
+005F 22               64                             RET
+                      65             
+0060 E7               66             TABLE1: DB      11100111B
+0061 DB               67                             DB      11011011B
+0062 BD               68                             DB      10111101B
+0063 7E               69             OK1:    DB      01111110B
+                      70                     
+0064 7E               71             TABLE2: DB      01111110B
+0065 BD               72                             DB      10111101B
+0066 DB               73                             DB      11011011B
+0067 E7               74             OK2:    DB      11100111B
+                      75                     
+                      76             END
+A51 MACRO ASSEMBLER  SW_4                                                                 10/26/2019 23:09:26 PAGE     3
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -92,28 +96,28 @@ SYMBOL TABLE LISTING
 
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
-CASE1. . . . . . .  C ADDR   0013H   A   
+CASE1. . . . . . .  C ADDR   0011H   A   
 CASE2. . . . . . .  C ADDR   0020H   A   
-CASE3. . . . . . .  C ADDR   002DH   A   
-CASE4. . . . . . .  C ADDR   003FH   A   
-CONCENTRATED . . .  C ADDR   0046H   A   
-DELAY. . . . . . .  C ADDR   0051H   A   
-DIFFUSION. . . . .  C ADDR   0034H   A   
-DL1. . . . . . . .  C ADDR   0053H   A   
-DL2. . . . . . . .  C ADDR   0055H   A   
-DL3. . . . . . . .  C ADDR   0057H   A   
+CASE3. . . . . . .  C ADDR   002FH   A   
+CASE4. . . . . . .  C ADDR   0041H   A   
+CONCENTRATED . . .  C ADDR   0048H   A   
+DELAY. . . . . . .  C ADDR   0053H   A   
+DIFFUSION. . . . .  C ADDR   0036H   A   
+DL1. . . . . . . .  C ADDR   0055H   A   
+DL2. . . . . . . .  C ADDR   0057H   A   
+DL3. . . . . . . .  C ADDR   0059H   A   
 LEFT . . . . . . .  C ADDR   0015H   A   
-OK1. . . . . . . .  C ADDR   0061H   A   
-OK2. . . . . . . .  C ADDR   0065H   A   
+OK1. . . . . . . .  C ADDR   0063H   A   
+OK2. . . . . . . .  C ADDR   0067H   A   
 P1 . . . . . . . .  D ADDR   0090H   A   
 P3 . . . . . . . .  D ADDR   00B0H   A   
-RIGHT. . . . . . .  C ADDR   0022H   A   
-TABLE1 . . . . . .  C ADDR   005EH   A   
-TABLE2 . . . . . .  C ADDR   0062H   A   
-TEST . . . . . . .  C ADDR   0002H   A   
+RIGHT. . . . . . .  C ADDR   0024H   A   
+TABLE1 . . . . . .  C ADDR   0060H   A   
+TABLE2 . . . . . .  C ADDR   0064H   A   
+TEST . . . . . . .  C ADDR   0000H   A   
 
 
 REGISTER BANK(S) USED: 0 
 
 
-ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)
