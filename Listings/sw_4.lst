@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  SW_4                                                                 10/26/2019 23:09:26 PAGE     1
+A51 MACRO ASSEMBLER  SW_4                                                                 11/04/2019 09:40:46 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -20,24 +20,24 @@ LOC  OBJ            LINE     SOURCE
 000F 0100             10                             AJMP    TEST
                       11                             
 0011                  12                             CASE1:
-0011 7907             13                                             MOV     R1,#07H
+0011 7908             13                                             MOV     R1,#08H
 0013 74FE             14                                             MOV             A,#11111110B
 0015                  15                                     LEFT:
 0015 F590             16                                             MOV             P1,A
 0017 1153             17                                             ACALL   DELAY
 0019 23               18                                             RL              A
 001A D9F9             19                                             DJNZ    R1,LEFT
-001C A907             20                                             MOV             R1,07H
+001C A908             20                                             MOV             R1,08H
 001E 0100             21                                             AJMP    TEST
 0020                  22                             CASE2:
-0020 7907             23                                             MOV     R1,#07H
+0020 7908             23                                             MOV     R1,#08H
 0022 747F             24                                             MOV             A,#01111111B
 0024                  25                                     RIGHT:
 0024 F590             26                                             MOV             P1,A
 0026 1153             27                                             ACALL   DELAY
 0028 03               28                                             RR              A
 0029 D9F9             29                                             DJNZ    R1,RIGHT
-002B A907             30                                             MOV             R1,07H
+002B A908             30                                             MOV             R1,08H
 002D 0100             31                                             AJMP    TEST
 002F                  32                             CASE3:
 002F 7804             33                                             MOV             R0,#OK1-TABLE1+1
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
 0051 0100             55                                             AJMP    TEST
                       56             
                       57     
-A51 MACRO ASSEMBLER  SW_4                                                                 10/26/2019 23:09:26 PAGE     2
+A51 MACRO ASSEMBLER  SW_4                                                                 11/04/2019 09:40:46 PAGE     2
 
 0053 7DD0             58             DELAY:  MOV     R5,#2000
 *** _____________________________________________________^
@@ -88,7 +88,7 @@ LOC  OBJ            LINE     SOURCE
 0067 E7               74             OK2:    DB      11100111B
                       75                     
                       76             END
-A51 MACRO ASSEMBLER  SW_4                                                                 10/26/2019 23:09:26 PAGE     3
+A51 MACRO ASSEMBLER  SW_4                                                                 11/04/2019 09:40:46 PAGE     3
 
 SYMBOL TABLE LISTING
 ------ ----- -------

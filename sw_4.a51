@@ -10,24 +10,24 @@ ORG 0000H
 			AJMP	TEST
 			
 			CASE1:
-					MOV	R1,#07H
+					MOV	R1,#08H
 					MOV		A,#11111110B
 				LEFT:
 					MOV		P1,A
 					ACALL	DELAY
 					RL		A
 					DJNZ	R1,LEFT
-					MOV		R1,07H
+					MOV		R1,08H
 					AJMP	TEST
 			CASE2:
-					MOV	R1,#07H
+					MOV	R1,#08H
 					MOV		A,#01111111B
 				RIGHT:
 					MOV		P1,A
 					ACALL	DELAY
 					RR		A
 					DJNZ	R1,RIGHT
-					MOV		R1,07H
+					MOV		R1,08H
 					AJMP	TEST
 			CASE3:
 					MOV		R0,#OK1-TABLE1+1

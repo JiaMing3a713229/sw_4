@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  ON_OFF                                                               11/04/2019 10:32:21 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\on_off.obj
+ASSEMBLER INVOKED BY: D:\keil\C51\BIN\A51.EXE on_off.a51 SET(SMALL) DEBUG PRINT(.\Listings\on_off.lst) OBJECT(.\Objects\
+                      on_off.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 759000            2             LOOP:   MOV             P1,#00000000B
+0003 110C              3                             ACALL   DELAY 
+0005 7590FF            4                             MOV             P1,#11111111B
+0008 110C              5                             ACALL   DELAY
+000A 0100              6                             AJMP    LOOP
+                       7                             
+000C AEFA              8             DELAY:  MOV R6,250
+000E AFFA              9             DL1:    MOV     R7,250
+0010 DFFE             10             DL2:    DJNZ    R7,DL2
+0012 DEFA             11                             DJNZ    R6,DL1
+0014 22               12                             RET
+                      13     END
+                                     
+A51 MACRO ASSEMBLER  ON_OFF                                                               11/04/2019 10:32:21 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   000CH   A   
+DL1. . . . . . . .  C ADDR   000EH   A   
+DL2. . . . . . . .  C ADDR   0010H   A   
+LOOP . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,4 +1,9 @@
 ".\Objects\STARTUP.obj",
-".\Objects\sw_4.obj" 
+".\Objects\sw_4.obj",
+".\Objects\on_off.obj",
+".\Objects\FLASH1.obj",
+".\Objects\AD_LED.obj",
+".\Objects\SWITCH_10.obj",
+".\Objects\TEST1.obj" 
 TO ".\Objects\sw_4" 
 PRINT(".\Listings\sw_4.m51")

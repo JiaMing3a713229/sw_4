@@ -1,0 +1,60 @@
+A51 MACRO ASSEMBLER  FLASH1                                                               11/04/2019 09:40:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\FLASH1.obj
+ASSEMBLER INVOKED BY: D:\keil\C51\BIN\A51.EXE FLASH1.a51 SET(SMALL) DEBUG PRINT(.\Listings\FLASH1.lst) OBJECT(.\Objects\
+                      FLASH1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;9-2
+0000                   2     ORG 0000H
+0000 7907              3             START:  MOV             R1,#07H
+0002 74FE              4                             MOV             A,#11111110B
+0004 F590              5             LEFT:   MOV     P1,A
+0006 1118              6                             ACALL   DELAY
+0008 23                7                             RL      A
+0009 D9F9              8                             DJNZ    R1,LEFT
+                       9                             
+000B 7907             10                             MOV             R1,#07H
+000D 747F             11                             MOV             A,#01111111B
+000F F590             12             RIGHT:  MOV             P1,A
+0011 1118             13                             ACALL   DELAY
+0013 03               14                             RR      A
+0014 D9F9             15                             DJNZ    R1,RIGHT
+0016 0100             16                             AJMP    START
+                      17             
+0018 7DD0             18             DELAY:  MOV     R5,#2000
+*** _____________________________________________________^
+*** WARNING #A52 IN 18 (FLASH1.a51, LINE 18): VALUE HAS BEEN TRUNCATED TO 8 BITS
+001A 7EFA             19             DL1:    MOV     R6,#250
+001C 7FC8             20             DL2:    MOV R7,#200
+001E DFFE             21             DL3:    DJNZ    R7,DL3
+0020 DEFA             22                             DJNZ    R6,DL2
+0022 DDF6             23                             DJNZ    R5,DL1
+0024 22               24                             RET
+                      25     END
+                                     
+A51 MACRO ASSEMBLER  FLASH1                                                               11/04/2019 09:40:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0018H   A   
+DL1. . . . . . . .  C ADDR   001AH   A   
+DL2. . . . . . . .  C ADDR   001CH   A   
+DL3. . . . . . . .  C ADDR   001EH   A   
+LEFT . . . . . . .  C ADDR   0004H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+RIGHT. . . . . . .  C ADDR   000FH   A   
+START. . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

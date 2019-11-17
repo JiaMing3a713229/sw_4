@@ -386,6 +386,31 @@
               <FileType>2</FileType>
               <FilePath>.\sw_4.a51</FilePath>
             </File>
+            <File>
+              <FileName>on_off.a51</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\on_off.a51</FilePath>
+            </File>
+            <File>
+              <FileName>FLASH1.a51</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\FLASH1.a51</FilePath>
+            </File>
+            <File>
+              <FileName>AD_LED.a51</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\AD_LED.a51</FilePath>
+            </File>
+            <File>
+              <FileName>SWITCH_10.a51</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\SWITCH_10.a51</FilePath>
+            </File>
+            <File>
+              <FileName>TEST1.a51</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\TEST1.a51</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

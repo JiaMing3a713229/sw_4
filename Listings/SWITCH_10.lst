@@ -1,0 +1,85 @@
+A51 MACRO ASSEMBLER  SWITCH_10                                                            11/04/2019 09:40:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\SWITCH_10.obj
+ASSEMBLER INVOKED BY: D:\keil\C51\BIN\A51.EXE SWITCH_10.a51 SET(SMALL) DEBUG PRINT(.\Listings\SWITCH_10.lst) OBJECT(.\Ob
+                      jects\SWITCH_10.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 7900              2             START:  MOV R1,#00000000B
+0002 7A0F              3                             MOV R2,#00001111B
+0004 7BAA              4                             MOV R3,#10101010B
+0006 7CF0              5                             MOV     R4,#11110000B
+                       6             
+0008 43B0FF            7             TEST:   ORL     P3,#0FFH
+000B 30B70B            8                             JNB     P3.7,CASE1
+000E 30B612            9                             JNB     P3.6,CASE2
+0011 30B519           10                             JNB     P3.5,CASE3
+0014 30B420           11                             JNB     P3.4,CASE4
+0017 0108             12                             AJMP    TEST
+                      13                             
+0019 E9               14                             CASE1:  MOV     A,R1
+001A F590             15                                             MOV     P1,A
+001C 64FF             16                                             XRL     A,#11111111B
+001E F9               17                                             MOV R1,A
+001F 1141             18                                             ACALL   DELAY
+0021 0108             19                                             AJMP    TEST
+                      20                                             
+0023 EA               21                             CASE2:  MOV     A,R2
+0024 F590             22                                             MOV     P1,A
+0026 64FF             23                                             XRL     A,#11111111B
+0028 FA               24                                             MOV R2,A
+0029 1141             25                                             ACALL   DELAY
+002B 0108             26                                             AJMP    TEST
+                      27                                             
+002D EB               28                             CASE3:  MOV     A,R3
+002E F590             29                                             MOV     P1,A
+0030 64FF             30                                             XRL     A,#11111111B
+0032 FB               31                                             MOV R3,A
+0033 1141             32                                             ACALL   DELAY
+0035 0108             33                                             AJMP    TEST
+                      34                                             
+0037 EC               35                             CASE4:  MOV     A,R4
+0038 F590             36                                             MOV     P1,A
+003A 64FF             37                                             XRL     A,#11111111B
+003C FC               38                                             MOV R4,A
+003D 1141             39                                             ACALL   DELAY
+003F 0108             40                                             AJMP    TEST
+                      41             
+0041 7DC8             42             DELAY:  MOV             R5,#200
+0043 7EFA             43             DL1:    MOV             R6,#250
+0045 7FC8             44             DL2:    MOV             R7,#200
+0047 DFFE             45             DL3:    DJNZ    R7,DL3
+0049 DEFA             46                             DJNZ    R6,DL2
+004B DDF6             47                             DJNZ    R5,DL1
+004D 22               48                             RET
+                      49     END
+A51 MACRO ASSEMBLER  SWITCH_10                                                            11/04/2019 09:40:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CASE1. . . . . . .  C ADDR   0019H   A   
+CASE2. . . . . . .  C ADDR   0023H   A   
+CASE3. . . . . . .  C ADDR   002DH   A   
+CASE4. . . . . . .  C ADDR   0037H   A   
+DELAY. . . . . . .  C ADDR   0041H   A   
+DL1. . . . . . . .  C ADDR   0043H   A   
+DL2. . . . . . . .  C ADDR   0045H   A   
+DL3. . . . . . . .  C ADDR   0047H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0000H   A   
+TEST . . . . . . .  C ADDR   0008H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

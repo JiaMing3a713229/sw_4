@@ -1,13 +1,19 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    10/26/2019  23:09:26  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    11/04/2019  22:26:37  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
-D:\KEIL\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\sw_4.obj TO .\Objects\sw_4 PRINT (.\Listings\sw_4.m51)
+D:\KEIL\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\sw_4.obj, .\Objects\on_off.obj, .\Objects\FLASH1.obj, .\Object
+>> s\AD_LED.obj, .\Objects\SWITCH_10.obj, .\Objects\TEST1.obj TO .\Objects\sw_4 PRINT (.\Listings\sw_4.m51)
 
 
 INPUT MODULES INCLUDED:
   .\Objects\STARTUP.obj (?C_STARTUP)
   .\Objects\sw_4.obj (SW_4)
+  .\Objects\on_off.obj (ON_OFF)
+  .\Objects\FLASH1.obj (FLASH1)
+  .\Objects\AD_LED.obj (AD_LED)
+  .\Objects\SWITCH_10.obj (SWITCH_10)
+  .\Objects\TEST1.obj (TEST1)
 
 
 LINK MAP OF MODULE:  .\Objects\sw_4 (?C_STARTUP)
@@ -23,6 +29,11 @@ LINK MAP OF MODULE:  .\Objects\sw_4 (?C_STARTUP)
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
 * OVERLAP * CODE    0000H     0068H     ABSOLUTE     
+* OVERLAP * CODE    0000H     0015H     ABSOLUTE     
+* OVERLAP * CODE    0000H     0025H     ABSOLUTE     
+* OVERLAP * CODE    0000H     0028H     ABSOLUTE     
+* OVERLAP * CODE    0000H     004EH     ABSOLUTE     
+* OVERLAP * CODE    0000H     0048H     ABSOLUTE     
                     0068H     0798H                  *** GAP ***
             CODE    0800H     000CH     UNIT         ?C_C51STARTUP
 
@@ -48,6 +59,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\sw_4 (?C_STARTUP)
   D:0082H         SYMBOL        DPL
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/04/2019  22:26:37  PAGE 2
+
+
   N:0080H         SYMBOL        IDATALEN
   C:0803H         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
@@ -59,9 +73,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\sw_4 (?C_STARTUP)
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
   C:0800H         SYMBOL        STARTUP1
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/26/2019  23:09:26  PAGE 2
-
-
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
@@ -108,6 +119,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\sw_4 (?C_STARTUP)
   C:0019H         LINE#         18
   C:001AH         LINE#         19
   C:001CH         LINE#         20
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/04/2019  22:26:37  PAGE 3
+
+
   C:001EH         LINE#         21
   C:0020H         LINE#         23
   C:0022H         LINE#         24
@@ -119,9 +133,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\sw_4 (?C_STARTUP)
   C:002DH         LINE#         31
   C:002FH         LINE#         33
   C:0031H         LINE#         34
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/26/2019  23:09:26  PAGE 3
-
-
   C:0034H         LINE#         35
   C:0036H         LINE#         37
   C:0037H         LINE#         38
@@ -149,9 +160,227 @@ SYMBOL TABLE OF MODULE:  .\Objects\sw_4 (?C_STARTUP)
   C:005FH         LINE#         64
   -------         ENDMOD        SW_4
 
+  -------         MODULE        ON_OFF
+  C:000CH         SYMBOL        DELAY
+  C:000EH         SYMBOL        DL1
+  C:0010H         SYMBOL        DL2
+  C:0000H         SYMBOL        LOOP
+  D:0090H         SYMBOL        P1
+  C:0000H         LINE#         2
+  C:0003H         LINE#         3
+  C:0005H         LINE#         4
+  C:0008H         LINE#         5
+  C:000AH         LINE#         6
+  C:000CH         LINE#         8
+  C:000EH         LINE#         9
+  C:0010H         LINE#         10
+  C:0012H         LINE#         11
+  C:0014H         LINE#         12
+  -------         ENDMOD        ON_OFF
+
+  -------         MODULE        FLASH1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/04/2019  22:26:37  PAGE 4
+
+
+  C:0018H         SYMBOL        DELAY
+  C:001AH         SYMBOL        DL1
+  C:001CH         SYMBOL        DL2
+  C:001EH         SYMBOL        DL3
+  C:0004H         SYMBOL        LEFT
+  D:0090H         SYMBOL        P1
+  C:000FH         SYMBOL        RIGHT
+  C:0000H         SYMBOL        START
+  C:0000H         LINE#         3
+  C:0002H         LINE#         4
+  C:0004H         LINE#         5
+  C:0006H         LINE#         6
+  C:0008H         LINE#         7
+  C:0009H         LINE#         8
+  C:000BH         LINE#         10
+  C:000DH         LINE#         11
+  C:000FH         LINE#         12
+  C:0011H         LINE#         13
+  C:0013H         LINE#         14
+  C:0014H         LINE#         15
+  C:0016H         LINE#         16
+  C:0018H         LINE#         18
+  C:001AH         LINE#         19
+  C:001CH         LINE#         20
+  C:001EH         LINE#         21
+  C:0020H         LINE#         22
+  C:0022H         LINE#         23
+  C:0024H         LINE#         24
+  -------         ENDMOD        FLASH1
+
+  -------         MODULE        AD_LED
+  C:0012H         SYMBOL        DELAY
+  C:0014H         SYMBOL        DL1
+  C:0016H         SYMBOL        DL2
+  C:0018H         SYMBOL        DL3
+  C:0007H         SYMBOL        LOOP
+  C:0027H         SYMBOL        OK
+  D:0090H         SYMBOL        P1
+  C:0000H         SYMBOL        START
+  C:001FH         SYMBOL        TABLE
+  C:0000H         LINE#         2
+  C:0002H         LINE#         3
+  C:0005H         LINE#         4
+  C:0007H         LINE#         5
+  C:0008H         LINE#         6
+  C:0009H         LINE#         7
+  C:000BH         LINE#         8
+  C:000DH         LINE#         9
+  C:000EH         LINE#         10
+  C:0010H         LINE#         11
+  C:0012H         LINE#         13
+  C:0014H         LINE#         14
+  C:0016H         LINE#         15
+  C:0018H         LINE#         16
+  C:001AH         LINE#         17
+  C:001CH         LINE#         18
+  C:001EH         LINE#         19
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/04/2019  22:26:37  PAGE 5
+
+
+  -------         ENDMOD        AD_LED
+
+  -------         MODULE        SWITCH_10
+  C:0019H         SYMBOL        CASE1
+  C:0023H         SYMBOL        CASE2
+  C:002DH         SYMBOL        CASE3
+  C:0037H         SYMBOL        CASE4
+  C:0041H         SYMBOL        DELAY
+  C:0043H         SYMBOL        DL1
+  C:0045H         SYMBOL        DL2
+  C:0047H         SYMBOL        DL3
+  D:0090H         SYMBOL        P1
+  D:00B0H         SYMBOL        P3
+  C:0000H         SYMBOL        START
+  C:0008H         SYMBOL        TEST
+  C:0000H         LINE#         2
+  C:0002H         LINE#         3
+  C:0004H         LINE#         4
+  C:0006H         LINE#         5
+  C:0008H         LINE#         7
+  C:000BH         LINE#         8
+  C:000EH         LINE#         9
+  C:0011H         LINE#         10
+  C:0014H         LINE#         11
+  C:0017H         LINE#         12
+  C:0019H         LINE#         14
+  C:001AH         LINE#         15
+  C:001CH         LINE#         16
+  C:001EH         LINE#         17
+  C:001FH         LINE#         18
+  C:0021H         LINE#         19
+  C:0023H         LINE#         21
+  C:0024H         LINE#         22
+  C:0026H         LINE#         23
+  C:0028H         LINE#         24
+  C:0029H         LINE#         25
+  C:002BH         LINE#         26
+  C:002DH         LINE#         28
+  C:002EH         LINE#         29
+  C:0030H         LINE#         30
+  C:0032H         LINE#         31
+  C:0033H         LINE#         32
+  C:0035H         LINE#         33
+  C:0037H         LINE#         35
+  C:0038H         LINE#         36
+  C:003AH         LINE#         37
+  C:003CH         LINE#         38
+  C:003DH         LINE#         39
+  C:003FH         LINE#         40
+  C:0041H         LINE#         42
+  C:0043H         LINE#         43
+  C:0045H         LINE#         44
+  C:0047H         LINE#         45
+  C:0049H         LINE#         46
+  C:004BH         LINE#         47
+  C:004DH         LINE#         48
+  -------         ENDMOD        SWITCH_10
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/04/2019  22:26:37  PAGE 6
+
+
+
+  -------         MODULE        TEST1
+  C:0015H         SYMBOL        CASE1
+  C:0017H         SYMBOL        CASE2
+  C:0037H         SYMBOL        CASE3
+  C:0039H         SYMBOL        CASE4
+  C:003BH         SYMBOL        DELAY
+  C:003DH         SYMBOL        DL1
+  C:003FH         SYMBOL        DL2
+  C:0041H         SYMBOL        DL3
+  C:0017H         SYMBOL        FUN1
+  C:0025H         SYMBOL        FUN2
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  C:0000H         SYMBOL        START
+  C:0004H         SYMBOL        TEST
+  C:0000H         LINE#         2
+  C:0002H         LINE#         3
+  C:0004H         LINE#         8
+  C:0007H         LINE#         9
+  C:000AH         LINE#         10
+  C:000DH         LINE#         11
+  C:0010H         LINE#         12
+  C:0013H         LINE#         13
+  C:0015H         LINE#         16
+  C:0017H         LINE#         20
+  C:0019H         LINE#         21
+  C:001BH         LINE#         22
+  C:001DH         LINE#         23
+  C:001FH         LINE#         24
+  C:0021H         LINE#         25
+  C:0023H         LINE#         26
+  C:0025H         LINE#         33
+  C:0027H         LINE#         34
+  C:0029H         LINE#         35
+  C:002BH         LINE#         36
+  C:002DH         LINE#         37
+  C:002FH         LINE#         38
+  C:0031H         LINE#         39
+  C:0033H         LINE#         40
+  C:0035H         LINE#         41
+  C:0037H         LINE#         44
+  C:0039H         LINE#         47
+  C:003BH         LINE#         49
+  C:003DH         LINE#         50
+  C:003FH         LINE#         51
+  C:0041H         LINE#         52
+  C:0043H         LINE#         53
+  C:0045H         LINE#         54
+  C:0047H         LINE#         55
+  -------         ENDMOD        TEST1
+
 *** WARNING L5: CODE SPACE MEMORY OVERLAP
     FROM:    0000H
     TO:      0002H
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  11/04/2019  22:26:37  PAGE 7
+
+
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0067H
+
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0067H
+
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0067H
+
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0067H
+
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0067H
 
 *** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
     SYMBOL:  ?C_START
@@ -163,8 +392,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\sw_4 (?C_STARTUP)
     ADDRESS: 080AH
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0077H BYTE ( 5%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 016FH BYTE (17%) *
 ******************************************************************************
 
-Program Size: data=9.0 xdata=0 code=119
-LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)
+Program Size: data=9.0 xdata=0 code=367
+LINK/LOCATE RUN COMPLETE.  8 WARNING(S),  0 ERROR(S)

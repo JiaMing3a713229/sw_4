@@ -1,0 +1,95 @@
+A51 MACRO ASSEMBLER  TEST1                                                                11/04/2019 10:08:22 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\TEST1.obj
+ASSEMBLER INVOKED BY: D:\keil\C51\BIN\A51.EXE TEST1.a51 SET(SMALL) DEBUG PRINT(.\Listings\TEST1.lst) OBJECT(.\Objects\TE
+                      ST1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 7805              2             START:  MOV R0,#05H
+0002 7903              3                             MOV R1,#03H
+                       4                             ;MOV R2,#00001111B
+                       5                             ;MOV R3,#10101010B
+                       6                             ;MOV    R4,#11110000B
+                       7             
+0004 43B0FF            8             TEST:   ORL     P3,#0FFH
+0007 30B70B            9                             JNB     P3.7,CASE1
+000A 30B60A           10                             JNB     P3.6,CASE2
+000D 30B527           11                             JNB     P3.5,CASE3
+0010 30B426           12                             JNB     P3.4,CASE4
+0013 0104             13                             AJMP    TEST
+                      14                             
+0015                  15                             CASE1:  
+0015 0104             16                                             AJMP    TEST
+                      17                                             
+0017                  18                             CASE2:          
+                      19                                                     
+0017 7455             20                                     FUN1:   MOV A,#01010101B
+0019 F590             21                                                     MOV     P1,A
+001B 113B             22                                                     ACALL DELAY
+001D 7400             23                                                     MOV A,#00000000B
+001F F590             24                                                     MOV P1,A
+0021 113B             25                                                     ACALL DELAY
+0023 D8F2             26                                                     DJNZ    R0,FUN1
+                      27                                                     
+                      28                                                     
+                      29                                                     
+                      30                                             
+                      31     
+                      32                                                     
+0025 74AA             33                                     FUN2:   MOV A,#10101010B
+0027 F5A0             34                                                     MOV P2,A
+0029 113B             35                                                     ACALL DELAY
+002B 7400             36                                                     MOV A,#00000000B
+002D F5A0             37                                                     MOV P2,A
+002F 113B             38                                                     ACALL DELAY
+0031 D9F2             39                                                     DJNZ    R1,FUN2
+0033 113B             40                                                     ACALL DELAY
+0035 0104             41                                                     AJMP    TEST
+                      42                                             
+0037                  43                             CASE3:  
+0037 0104             44                                             AJMP    TEST
+                      45                                             
+0039                  46                             CASE4:  
+0039 0104             47                                             AJMP    TEST
+                      48             
+003B 7DC8             49             DELAY:  MOV             R5,#200
+003D 7EFA             50             DL1:    MOV             R6,#250
+003F 7FC8             51             DL2:    MOV             R7,#200
+0041 DFFE             52             DL3:    DJNZ    R7,DL3
+0043 DEFA             53                             DJNZ    R6,DL2
+0045 DDF6             54                             DJNZ    R5,DL1
+0047 22               55                             RET
+                      56     END
+A51 MACRO ASSEMBLER  TEST1                                                                11/04/2019 10:08:22 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CASE1. . . . . . .  C ADDR   0015H   A   
+CASE2. . . . . . .  C ADDR   0017H   A   
+CASE3. . . . . . .  C ADDR   0037H   A   
+CASE4. . . . . . .  C ADDR   0039H   A   
+DELAY. . . . . . .  C ADDR   003BH   A   
+DL1. . . . . . . .  C ADDR   003DH   A   
+DL2. . . . . . . .  C ADDR   003FH   A   
+DL3. . . . . . . .  C ADDR   0041H   A   
+FUN1 . . . . . . .  C ADDR   0017H   A   
+FUN2 . . . . . . .  C ADDR   0025H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0000H   A   
+TEST . . . . . . .  C ADDR   0004H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
